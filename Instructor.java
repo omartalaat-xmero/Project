@@ -9,11 +9,11 @@ package com.mycompany.task;
  * @author MAHMOUD TALAAT
  */
 public class Instructor {
-     private int id;
+    private int id;
     private String name ;
-    private String nameofcourses;
+    private List<String> nameofcourses;
 
-    public Instructor(int id, String name, String nameofcourses) {
+    public Instructor(int id, String name, List<String>  nameofcourses) {
         this.id = id;
         this.name = name;
         this.nameofcourses = nameofcourses;
@@ -27,7 +27,7 @@ public class Instructor {
         this.name = name;
     }
 
-    public void setNameofcourses(String nameofcourses) {
+    public void setNameofcourses(List<String>  nameofcourses) {
         this.nameofcourses = nameofcourses;
     }
 
@@ -39,12 +39,12 @@ public class Instructor {
         return name;
     }
 
-    public String getNameofcourses() {
+    public List<String>  getNameofcourses() {
         return nameofcourses;
     }
      
     public String instructortinfo(){
-        return "Name: "+name+"\nID: "+id+"\nCourse: "+nameofcourses+"\n";
+        String nameofcourseslist = String.join(", ", nameofcourses);
+        return "Name: "+name+"\nID: "+id+"\nCourse: "+nameofcourseslist+"\n";
     }
-    
 }
