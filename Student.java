@@ -1,77 +1,54 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.task;
-
 /**
  *
  * @author MAHMOUD TALAAT
  */
 public class Student {
+    private int id;
     private String name;
-    private String pass;
-    private int Id;
-    private boolean login = false;
-    Gradesystem gradesystem;
-    public Student(String name, String pass, int Id) {
+    private double grade;
+    private String course;
+
+    public Student(int id, String name, double grade, String course) {
+        this.id = id;
         this.name = name;
-        this.pass = pass;
-        this.Id = Id;
-        this.gradesystem=new Gradesystem();
-    } // Constructor to initialize student data by instructor
-    
-    
-    public boolean login(int Id, String pass) {
-        if (Id == this.Id && pass.equals(this.pass)) {
-            this.login = true;
-            return true;
-        }
-        return false;
-    }// Method to log the student in
-    public void logout() {
-        this.login = false;
-    }// Method to log the student out
-    public boolean isLoggedIn() {
-        return login;
+        this.grade = grade;
+        this.course = course;
     }
-    
-    
-    /*setters and getters to edit student data by instructor or student*/
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
-    public void setPass(String pass) {
-        this.pass = pass;
+
+    public void setGrade(double grade) {
+        this.grade = grade;
     }
-    public void setId(int Id) {
-        this.Id = Id;
+
+    public void setCourse(String course) {
+        this.course = course;
     }
+
+    public int getId() {
+        return id;
+    }
+
     public String getName() {
         return name;
     }
-    public String getPass() {
-        return pass;
-    }
-    public int getId() {
-        return Id;
-    }
-  
-    
-    public void setGrades(int numOfSessions, int numOfAttended, int numOfAssignments, int numOfSubmitted, float finalExamGrade) {
-        // Set attendance grade
-        this.gradesystem.Atend(numOfSessions, numOfAttended);
-        // Set submission grade
-        this.gradesystem.SubmiGrade(numOfAssignments, numOfSubmitted);
-        // Set final exam grade
-        this.gradesystem.setFinalgrade(finalExamGrade);
-    }
-    
-    public char getGPA() {
-        return this.gradesystem.getGPA();
-    }// method to get GPA from GradeSystem
-    public float getTotalGrade() {
-        return this.gradesystem.getTotalGrade();
-    }// method to get total grade from GradeSystem
-}
 
+    public double getGrade() {
+        return grade;
+    }
+
+    public String getCourse() {
+        return course;
+    }
+    
+    public String studentinfo(){
+        return "Name: "+name+"\nID: "+id+"\nCourse: "+course+"\nGrade: "+grade+"\n";
+    }
+}
