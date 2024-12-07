@@ -18,7 +18,8 @@ public class studentsystem {
         Student newstud = new Student(id, name, grade, course);
         stud.add(newstud);
         totalStudents++;
-        System.out.println("Student Added\n"+newstud.studentinfo());
+          System.out.println("Student Added\n");
+        newstud.studentinfo();
     }
     public void editStudent(int id, String newName, double newGrade, String newCourse) {
         boolean found = false;
