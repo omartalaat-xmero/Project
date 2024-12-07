@@ -18,18 +18,16 @@ public class studentsystem {
         Student newstud = new Student(id, name, grade, course);
         stud.add(newstud);
         totalStudents++;
-          System.out.println("Student Added\n");
-        newstud.studentinfo();
+        System.out.println("Student Added\n"+newstud.studentinfo());
     }
-    public void editStudent(int id, String newName, double newGrade, String newCourse) {
+    public static void editStudent(int id, String newName, double newGrade, String newCourse) {
         boolean found = false;
         for(int i = 0; i < stud.size(); i++) {
             if (stud.get(i).getId()== id) {
                 stud.get(i).setName(newName);
                 stud.get(i).setGrade(newGrade);
                 stud.get(i).setCourse(newCourse);
-                System.out.println("Student updated");
-                stud.get(i).studentinfo();
+                System.out.println("Student updated"+stud.get(i).studentinfo());
                 found = true;
                 break;
             }
@@ -38,7 +36,7 @@ public class studentsystem {
             System.out.println("Student with ID " + id + " not found.");
         }
     }
-    public void removeStudent(int id) {
+    public static void removeStudent(int id) {
         boolean removed = stud.removeIf(student -> student.getId() == id);
         if (removed) {
             System.out.println("Student with ID " + id + " removed.");
@@ -48,13 +46,16 @@ public class studentsystem {
         }
     }
     public static void viewStudent(int id) { 
+        boolean found = false;
         for (int i = 0; i < stud.size(); i++) {
             if (stud.get(i).getId() == id) { 
                 stud.get(i).studentinfo();
+                found = true;
+                break;
             }
-            else {
-                System.out.println("Student ID not found");
-            }
+        }
+        if (!found) {
+            System.out.println("Student with ID " + id + " not found.");
         }
     }
 }
