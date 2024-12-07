@@ -25,7 +25,12 @@ public class Student {
     }
 
     public void setGrade(double grade) {
-        this.grade = grade;
+       if (grade < 0 || grade > 100) {
+            System.out.println("Invalid grade! Grade must be between 0 and 100.");
+        } 
+        else {
+            this.grade = grade;
+        }
     }
 
     public void setCourse(String course) {
