@@ -1,59 +1,32 @@
 package com.mycompany.task;
+import java.util.*;
 /**
  *
  * @author MAHMOUD TALAAT
  */
-public class Student {
-    private int id;
-    private String name;
-    private double grade;
-    private String course;
-
-    public Student(int id, String name, double grade, String course) {
-        this.id = id;
-        this.name = name;
-        this.grade = grade;
-        this.course = course;
+public class Student extends person{
+    
+    private Map<Course,Grade>grades;
+    
+    public Student(int id, String name) {
+        super(name, id);
+        this.grades = new HashMap<>();
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setGrade(double grade) {
-       if (grade < 0 || grade > 100) {
-            System.out.println("Invalid grade! Grade must be between 0 and 100.");
-        } 
-        else {
-            this.grade = grade;
-        }
-    }
-
-    public void setCourse(String course) {
-        this.course = course;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public double getGrade() {
-        return grade;
-    }
-
-    public String getCourse() {
-        return course;
+    public void addGrade(Course course, Grade grade) {
+        grades.put(course, grade);
     }
     
-    public String studentinfo(){
-        return "Name: "+name+"\nID: "+id+"\nCourse: "+course+"\nGrade: "+grade+"\n";
+    public void removeGrade(Course course) {
+        grades.remove(course);
+    }
+
+    public Grade getGrade(Course course) {
+        return grades.get(course);
+    }
+    
+    public void displayDetails(){
+        System.out.println("Student: " + getName() + "\nID: " + getId()+"\n"+grades);
+        
     }
 }
