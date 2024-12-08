@@ -4,19 +4,22 @@
  */
 package com.mycompany.task;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author MAHMOUD TALAAT
  */
 public class courses {
-    List<Course>course=new ArrayList<>();
+    List<String>course=new ArrayList<>();
     
     
-    void insertCourse(Course c){
-        course.add(c);
+    void insertCourse(String c){
+        this.course.add(c);
     }
     
-    void deleteCourse(Course c){
+    void deleteCourse(String c){
         course.remove(c);
     }
     
