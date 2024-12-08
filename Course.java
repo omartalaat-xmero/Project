@@ -3,11 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.task;
-import java.util.*;
+
+import java.util.List;
 
 /**
  *
- * @author Basmala
+ * @author MAHMOUD TALAAT
  */
 public class Course {
     private String courseName;
