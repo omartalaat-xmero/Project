@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.task;
+// View the total number of instructors
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,19 +15,21 @@ import java.util.List;
 public class instructorsystem {
     private static final List<Instructor> inst = new ArrayList<>();
     private static int totalInstructor = 0;
+    
     public static void addInstructor(int id,String name,List<String> nameofcourses) {
         Instructor newinst = new Instructor(id, name,nameofcourses);
         inst.add(newinst);
         totalInstructor++;
-        System.out.println("Instructor Added\n"+newinst.instructortinfo());
+        System.out.println("Instructor Added\n"+newinst.displayDetails());
     }
+    
     public static void editInstructor(int id,String name,List<String> nameofcourses) {
         boolean found = false;
         for(int i = 0; i < inst.size(); i++) {
             if (inst.get(i).getId()== id) {
                 inst.get(i).setName(name);
                 inst.get(i).setNameofcourses(nameofcourses);
-                System.out.println("Instructor updated"+inst.get(i).instructortinfo());
+                System.out.println("Instructor updated"+inst.get(i).displayDetails());
                 found = true;
                 break;
             }
@@ -35,6 +38,7 @@ public class instructorsystem {
             System.out.println("Instructor with ID " + id + " not found.");
         }
     }
+    
     public static void removeInstructor(int id) {
         boolean removed = inst.removeIf(instructor -> instructor.getId() == id);
         if (removed) {
@@ -48,13 +52,13 @@ public class instructorsystem {
         boolean found = false;
         for (int i = 0; i < inst.size(); i++) {
             if (inst.get(i).getId() == id) { 
-                inst.get(i).instructortinfo();
+                System.out.println(inst.get(i).displayDetails());
                 found = true;
                 break;
             }
         }
         if (!found) {
             System.out.println("Instructor with ID " + id + " not found.");
-         }
+        }
     }
 }
