@@ -10,7 +10,7 @@ package com.mycompany.task;
  */
 public abstract class person {
      private String name;
-    private String id;
+    private int id;
 
     // Constructor
     public person(String name, String id) {
