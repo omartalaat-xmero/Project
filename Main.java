@@ -13,19 +13,20 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) {
-        /***********************************Student interface******************************************/
-        studentsystem.addStudent(10002, "omar talaat", 90, "software testing");
-        studentsystem.addStudent(10007, "omar talaat", 70, "software testing");
-        studentsystem.editStudent(10007, "mahmode", 80, "software testing");
-        studentsystem.removeStudent(10002);
-        studentsystem.viewStudent(10007);
-       /**************************************************************************************************/
-        /***********************************Instructor interface******************************************/
-        instructorsystem.addInstructor(100003, "Dr.Abd El-Rahman", Arrays.asList("embedded system", "c++", "software testing"));
-        instructorsystem.viewInstructor(100003);
-        instructorsystem.editInstructor(100003, "Dr.Abd El-Rahman", Arrays.asList("java", "software testing"));
-        instructorsystem.removeInstructor(100003);
-        instructorsystem.viewInstructor(100003);
-        /**************************************************************************************************/
+        
+        /******************************student interface**************************************************/
+        studentsystem.addStudent(1203, "omar talaat", 70, "math");
+        studentsystem.addStudent(1204, "talaat", 80, "c++");
+       // studentsystem.editStudent(1203, "talaat","c++",60);
+        studentsystem.removeStudent(1203);
+        studentsystem.viewStudent(1204);
+        /*********************************************************************************************/
+ /********************************Instructor interface****************************************/
+        instructorsystem.addInstructor(1, "talaat",Arrays.asList("java", "c++"));
+        instructorsystem.addInstructor(2, "talaat", Arrays.asList("c++", "math"));
+        instructorsystem.viewInstructor(1);
+        instructorsystem.editInstructor(1, "talaat", Arrays.asList("c++", "math"));
+        instructorsystem.removeInstructor(2);
+/*********************************************************************************************/
     }
 }
