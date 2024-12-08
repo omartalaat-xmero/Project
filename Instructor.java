@@ -3,48 +3,36 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.task;
-
+import java.util.*;
 /**
  *
  * @author MAHMOUD TALAAT
  */
-public class Instructor {
-    private int id;
-    private String name ;
-    private List<String> nameofcourses;
+public class Instructor extends person {
+    private List<Course> courses;
 
-    public Instructor(int id, String name, List<String>  nameofcourses) {
-        this.id = id;
-        this.name = name;
-        this.nameofcourses = nameofcourses;
+    public Instructor(int id, String name, List<Course>  nameofcourses) {
+        super(name,id);
+        this.courses = nameofcourses;
+    }
+    
+    public void addCourse(Course course) {
+        courses.add(course);
+    }
+    
+    public void removeCourse(Course course) {
+        courses.remove(course);
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setNameofcourses(List<String>  nameofcourses) {
-        this.nameofcourses = nameofcourses;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public List<String>  getNameofcourses() {
-        return nameofcourses;
+    public List<Course>  getNameofcourses() {
+        return courses;
     }
      
-    public String instructortinfo(){
-        String nameofcourseslist = String.join(", ", nameofcourses);
-        return "Name: "+name+"\nID: "+id+"\nCourse: "+nameofcourseslist+"\n";
+    public void displayDetails(){
+         System.out.println("Instructor: " + getName() + " | ID: " + getId());
+        System.out.println("Courses taught: ");
+        for (Course course : courses) {
+            System.out.println(course.getCourseName());
+        }
     }
 }
