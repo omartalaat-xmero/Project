@@ -13,22 +13,48 @@ import java.util.List;
  * @author MAHMOUD TALAAT
  */
 public class instructorsystem {
-    private static final List<Instructor> inst = new ArrayList<>();
-    private static int totalInstructor = 0;
+     private static final List<Instructor> inst = new ArrayList<>();
     
-    public static void addInstructor(int id,String name,List<String> nameofcourses) {
-        Instructor newinst = new Instructor(id, name,nameofcourses);
+    
+    public static void addInstructor(int id,String name,List<Course> courses) {
+        Instructor newinst = new Instructor(id, name,courses);
         inst.add(newinst);
-        totalInstructor++;
         System.out.println("Instructor Added\n"+newinst.displayDetails());
     }
     
-    public static void editInstructor(int id,String name,List<String> nameofcourses) {
+    public static void editInstructorName(int id,String name) {
         boolean found = false;
         for(int i = 0; i < inst.size(); i++) {
             if (inst.get(i).getId()== id) {
                 inst.get(i).setName(name);
-                inst.get(i).setNameofcourses(nameofcourses);
+                System.out.println("Instructor updated"+inst.get(i).displayDetails());
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            System.out.println("Instructor with ID " + id + " not found.");
+        }
+    }
+    public static void addInstructorCourse(int id,Course c) {
+        boolean found = false;
+        for(int i = 0; i < inst.size(); i++) {
+            if (inst.get(i).getId()== id) {
+                //inst.get(i).addCourses(c);
+                System.out.println("Instructor updated"+inst.get(i).displayDetails());
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            System.out.println("Instructor with ID " + id + " not found.");
+        }
+    }
+    public static void deleteInstructorCourse(int id,Course c) {
+        boolean found = false;
+        for(int i = 0; i < inst.size(); i++) {
+            if (inst.get(i).getId()== id) {
+                inst.get(i).removeCourse(c);
                 System.out.println("Instructor updated"+inst.get(i).displayDetails());
                 found = true;
                 break;
@@ -62,3 +88,4 @@ public class instructorsystem {
         }
     }
 }
+
