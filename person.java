@@ -9,7 +9,7 @@ package com.mycompany.task;
  * @author Basmala
  */
 public abstract class person {
-     private String name;
+      private String name;
     private int id;
 
     // Constructor
@@ -35,6 +35,7 @@ public abstract class person {
         this.id = id;
     }
 
-    public abstract String displayDetails(){}
+    public abstract String displayDetails();
+    
     
 }
