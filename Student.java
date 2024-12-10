@@ -15,7 +15,7 @@ public class Student extends person{
     
     private Map<Course,Grade>grades;
     
-    public Student(int id, String name, double grade, String course) {
+    public Student(int id, String name) {
         super(name, id);
         this.grades = new HashMap<>();
     }
@@ -34,7 +34,15 @@ public class Student extends person{
 
     public Map<Course, Grade> getGrades() {
     return new HashMap<>(grades);  // Returning a copy to preserve encapsulation
-}  
+    }  
+    
+    public List<Course>getCourses(){
+        List<Course> courses= new ArrayList<>();
+        for(Map.Entry<Course,Grade>mp: grades.entrySet()){
+            courses.add(mp.getKey());
+        }
+        return courses;
+    }
     
     @Override
     public String displayDetails() {
@@ -44,7 +52,7 @@ public class Student extends person{
         for (Map.Entry<Course, Grade> entry : grades.entrySet()) {
             details.append(entry.getKey().getCourseName())  // Assuming `Course` has a `getName()` method
                    .append(": ")
-                   .append(entry.getValue())  // Assuming `Grade` has a meaningful `toString()` method
+                   .append(entry.getValue().getGrade())  // Assuming `Grade` has a meaningful `toString()` method
                    .append("\n");
         }
 
