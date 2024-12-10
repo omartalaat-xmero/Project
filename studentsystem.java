@@ -13,12 +13,10 @@ import java.util.List;
  */
 public class studentsystem {
     private static final List<Student> stud = new ArrayList<>();
-    private static int totalStudents = 0;
     
-    public static void addStudent(int id,String name,double grade,String course) {
-        Student newstud = new Student(id, name, grade, course);
+    public static void addStudent(int id,String name) {
+        Student newstud = new Student(id, name);
         stud.add(newstud);
-        totalStudents++;
         System.out.println("Student Added\n"+newstud.displayDetails());
     }
     
@@ -28,7 +26,7 @@ public class studentsystem {
             if (stud.get(i).getId()== id) {
                 stud.get(i).setName(newName);
                 stud.get(i).addGrade(course,grade);
-                System.out.println("Student updated"+stud.get(i).studentInfo());
+                System.out.println("Student updated"+stud.get(i).displayDetails());
                 found = true;
                 break;
             }
@@ -50,7 +48,7 @@ public class studentsystem {
         boolean found = false;
         for (int i = 0; i < stud.size(); i++) {
             if (stud.get(i).getId() == id) { 
-                stud.get(i).studentInfo();
+                stud.get(i).displayDetails();
                 found = true;
                 break;
             }
