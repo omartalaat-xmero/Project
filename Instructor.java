@@ -10,27 +10,41 @@ import java.util.List;
  */
 public class Instructor extends person {
   
-    private List<String> courses;
+    private List<Course> c= new ArrayList<>();
 
-    public Instructor(int id, String name, List<String>  nameofcourses) {
+    public Instructor(int id, String name, List<Course>  courses) {
         super(name,id);
-        this.courses = nameofcourses;
+        for(int i=0;i<courses.size();i++)
+            c.add(courses.get(i));
     }
 
-    public void setNameofcourses(List<String>  nameofcourses) {
-        this.courses = nameofcourses;
+    public void addCourses(Course course) {
+        this.c.add(0,course);
+        
+    }
+    
+    public void removeCourse(Course course) {
+        c.remove(course);
+    }
+    
+    public List<Course>  getCourses() {
+        return c;
     }
     
     public List<String>  getNameofcourses() {
-        return courses;
+        List<String> nameofcourses=new ArrayList<>();
+        for (Course course : c) {
+         nameofcourses.add(course.getCourseName());
+        }
+        return nameofcourses;
     }
     @Override
      public String displayDetails(){
-        for (String course : courses) {
-        return "Courses : "+ getNameofcourses();
+         String details=("Instructor: " + getName() + "\nID: " + getId()+"\nCourses : ");
+        for (Course course : c) {
+           details+=("\n"+ course.getCourseName());
         }
-        return "Instructor: " + getName() + "\nID: " + getId();
+        return details;
 
     }
 }
-
