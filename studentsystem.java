@@ -44,6 +44,27 @@ public class studentsystem {
             System.out.println("Student with ID " + id + " not found.");
         }
     }
+    public static void allStudentCourses(int id) { 
+        boolean found = false;
+        for (int i = 0; i < stud.size(); i++) {
+            if (stud.get(i).getId() == id) { 
+                List<Course> c=stud.get(i).getCourses();
+                for(int j=0;j<c.size();j++){
+                    System.out.println(c.get(j).getCourseName());
+                }
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            System.out.println("Student with ID " + id + " not found.");
+        }
+    }
+    public static void allStudents() { 
+        for (int i = 0; i < stud.size(); i++) {
+            System.out.println("ID: " + stud.get(i).getId() + " ,Name: "+stud.get(i).getName()); 
+        }
+    }
     public static void viewStudent(int id) { 
         boolean found = false;
         for (int i = 0; i < stud.size(); i++) {
