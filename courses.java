@@ -12,14 +12,14 @@ import java.util.List;
  * @author MAHMOUD TALAAT
  */
 public class courses {
-    List<String>course=new ArrayList<>();
+    private List<Course>course=new ArrayList<>();
     
     
-    void insertCourse(String c){
+    void insertCourse(Course c){
         this.course.add(c);
     }
     
-    void deleteCourse(String c){
+    void deleteCourse(Course c){
         course.remove(c);
     }
     
