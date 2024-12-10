@@ -50,8 +50,5 @@ public class Student extends person{
 
         return details.toString();
     }
-    public String studentInfo() {
-        return displayDetails();  // You can call displayDetails here or create a new format if needed
-    }
 
 }
