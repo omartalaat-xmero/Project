@@ -3,12 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.task;
-
-import java.util.List;
+import java.util.*;
 
 /**
  *
- * @author MAHMOUD TALAAT
+ * @author Basmala
  */
 public class Course {
     private String courseName;
@@ -35,5 +34,15 @@ public class Course {
     public String getCourseCode() {
         return courseCode;
     }
-}
+     public void editCourseName(String courseName) {
+         this.courseName = courseName;
+    }
 
+    public void editCourseCode(String courseCode) {
+        this.courseCode = courseCode;
+    }
+    
+    public List<Student> displayEnrolledStudents(){
+        return students;
+    }
+}
