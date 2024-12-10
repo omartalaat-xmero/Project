@@ -35,8 +35,6 @@ public abstract class person {
         this.id = id;
     }
 
-    public String displayDetails(){
-        return "Student ID: " + getId() + ", Name: " + getName();
-    }
+    public abstract String displayDetails(){}
     
 }
